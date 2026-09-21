@@ -17,14 +17,14 @@ function App() {
 
   if (isCheckingAuth && !authUser) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        <span className="text-lg font-medium">Loading...</span>
+      <div className="flex items-center justify-center h-screen bg-gray-950">
+        <span className="text-lg font-medium text-gray-200">Loading...</span>
       </div>
     );
   }
 
   return (
-    <div>
+    <div className="bg-gray-950 min-h-screen">
       <Routes>
         <Route
           path="/"
@@ -39,7 +39,15 @@ function App() {
           element={!authUser ? <LoginPage /> : <Navigate to="/" />}
         />
       </Routes>
-      <Toaster />
+      <Toaster
+        toastOptions={{
+          style: {
+            background: "#1f2937",
+            color: "#f3f4f6",
+            border: "1px solid #374151",
+          },
+        }}
+      />
     </div>
   );
 }
